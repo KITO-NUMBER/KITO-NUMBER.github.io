@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>ГУ КПД — Главное управление Комитета по Противодействию Доксингу</title>
+    <!-- CSS загружается, это работает -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -207,7 +208,8 @@
             <a class="navbar-brand" href="#" onclick="showPage('home')">
                 <i class="fa-solid fa-shield-halved"></i> ГУ КПД
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <!-- ИЗМЕНЕНИЕ: Добавлен ID для кнопки, чтобы JS мог ее ловить -->
+            <button class="navbar-toggler" type="button" id="menuToggleBtn" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -507,27 +509,14 @@
         }
 
         // ===== Админ: управление =====
-        let editingDossierId = null;
-        let editingArticleId = null;
-
         function showDossierForm() {
             const title = prompt('Введите название досье:');
             if (!title) return;
             const content = prompt('Введите содержание досье:');
             if (content === null) return;
-            if (editingDossierId) {
-                // редактирование
-                const ref = doc(db, 'dossiers', editingDossierId);
-                updateDoc(ref, { title, content }).then(() => {
-                    editingDossierId = null;
-                    loadAdminDossiers();
-                });
-            } else {
-                // добавление
-                addDoc(DOSSIERS_COLL, { title, content, createdAt: new Date() }).then(() => {
-                    loadAdminDossiers();
-                });
-            }
+            addDoc(DOSSIERS_COLL, { title, content, createdAt: new Date() }).then(() => {
+                loadAdminDossiers();
+            });
         }
 
         function deleteDossier(id) {
@@ -537,10 +526,6 @@
         }
 
         function editDossier(id, title, content) {
-            editingDossierId = id;
-            showDossierForm(); // переиспользуем форму, но теперь будет редактирование
-            // но поскольку мы используем prompt, переопределим поведение
-            // более простой путь: сразу запросить новые данные
             const newTitle = prompt('Новое название:', title);
             if (newTitle === null) return;
             const newContent = prompt('Новое содержание:', content);
@@ -667,8 +652,24 @@
             }
         });
 
-        // Инициализация: загружаем списки при первом открытии админки (если уже авторизован)
-        // Также при открытии страниц досье и статей они загрузятся автоматически.
+        // ===== ИСПРАВЛЕНИЕ МЕНЮ (Обход бага Bootstrap с модулями) =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const collapseEl = document.getElementById('navbarNav');
+
+            if (toggleBtn && collapseEl) {
+                toggleBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Переключаем класс show для Bootstrap 5
+                    collapseEl.classList.toggle('show');
+                    
+                    // Обновляем aria-атрибуты для доступности
+                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+        });
+
         console.log('ГУ КПД готов!');
     </script>
 </body>
