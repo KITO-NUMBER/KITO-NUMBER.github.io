@@ -28,12 +28,10 @@
                 radial-gradient(ellipse at 30% 20%, rgba(196, 18, 48, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
             font-size: 14px;
-            /* Убираем блокировку скролла */
             overflow: auto !important;
         }
         body { display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Эффект стекла */
         .glass {
             background: var(--glass);
             backdrop-filter: blur(8px);
@@ -75,7 +73,6 @@
             flex-direction: column;
             padding: 0.5rem 0.5rem 0;
             margin-top: 54px;
-            /* Убираем overflow: hidden, чтобы скролл работал */
             overflow: visible !important;
         }
 
@@ -92,7 +89,6 @@
             text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500;
         }
 
-        /* Главное меню */
         .menu-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
             grid-template-rows: 1fr 1fr; gap: 6px;
@@ -122,7 +118,6 @@
             color: #fff; margin-bottom: 0; text-align: center; line-height: 1.2;
         }
 
-        /* Контентные карточки */
         .content-card {
             background: var(--surface);
             backdrop-filter: blur(10px);
@@ -177,7 +172,6 @@
         .alert { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: var(--gold); border-radius: 8px; }
         .no-data { text-align: center; padding: 2rem; color: var(--text-muted); }
 
-        /* Карточки статей/досье (превью) */
         .article-card, .dossier-card {
             background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
             border-radius: var(--radius); padding: 1.2rem; margin-bottom: 1.2rem; transition: 0.3s;
@@ -186,8 +180,7 @@
         .article-title, .dossier-title { font-weight: 600; color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem; }
         .article-preview, .dossier-preview {
             color: var(--text-muted); line-height: 1.5; margin-bottom: 0.8rem;
-            max-height: 4.5em; /* 3 строки */
-            overflow: hidden;
+            max-height: 4.5em; overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -201,17 +194,9 @@
         }
         .btn-detail:hover { background: var(--gold); color: #000; }
 
-        /* Главная: превью статей */
-        .home-articles {
-            margin-top: 1.5rem;
-        }
-        .home-articles h2 {
-            font-size: 1.2rem;
-            border-bottom: none;
-            margin-bottom: 0.5rem;
-        }
+        .home-articles { margin-top: 1.5rem; }
+        .home-articles h2 { font-size: 1.2rem; border-bottom: none; margin-bottom: 0.5rem; }
 
-        /* Админ-панель */
         #admin_login { max-width: 400px; margin: 0 auto; padding: 2rem 0; }
         #admin_login .form-group { margin-bottom: 1rem; }
         #admin_login label { color: #ccc; }
@@ -244,7 +229,6 @@
             padding: 0.3rem 1rem; border-radius: 20px; cursor: pointer; margin-bottom: 1rem;
         }
 
-        /* Модальное окно */
         .modal-overlay {
             display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -261,10 +245,8 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.5rem;
-            max-width: 600px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
+            max-width: 600px; width: 100%;
+            max-height: 80vh; overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.8);
         }
         .modal-box h2 { margin-top: 0; }
@@ -272,12 +254,8 @@
             float: right; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;
         }
         .modal-box .close-modal:hover { color: var(--accent); }
-        .modal-box .modal-content {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        .modal-box .modal-content { color: var(--text-muted); line-height: 1.6; }
 
-        /* Адаптация */
         @media (max-width: 480px) {
             .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; }
             .menu-card { padding: 0.2rem; }
@@ -320,7 +298,6 @@
                 <div class="menu-card" onclick="showPage('contacts')"><i class="fa-solid fa-address-book"></i><span class="card-title">Контакты</span></div>
             </div>
 
-            <!-- Превью статей на главной -->
             <div class="home-articles">
                 <h2><i class="fa-solid fa-newspaper"></i> Последние статьи</h2>
                 <div id="homeArticlesList"></div>
@@ -367,7 +344,7 @@
             </ul>
         </div>
 
-        <!-- Анкета -->
+        <!-- Анкета (Вступление) с новым полем -->
         <div id="application" class="content-card">
             <button class="btn-back" onclick="showPage('home')"><i class="fa-solid fa-arrow-left"></i> На главную</button>
             <h1><i class="fa-solid fa-file-signature"></i> Анкета кандидата</h1>
@@ -381,11 +358,13 @@
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-clock"></i> Стаж (лет)</label><input type="number" class="form-control" name="experience_years" min="0" step="0.5" placeholder="0.5 — 20+" required></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-list-check"></i> Конкретные навыки</label><textarea class="form-control" name="skills" rows="3" placeholder="Опишите ваши навыки..." required></textarea></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-pen-to-square"></i> Мотивация</label><textarea class="form-control" name="motivation" rows="4" placeholder="Почему вы хотите вступить?" required></textarea></div>
+                <!-- НОВОЕ ПОЛЕ: Telegram username -->
+                <div class="mb-3"><label class="form-label"><i class="fa-solid fa-telegram"></i> Ваш Telegram username (для связи)</label><input type="text" class="form-control" name="telegram_username" placeholder="@ваш_ник" required></div>
                 <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Отправить</button>
             </form>
         </div>
 
-        <!-- Донос -->
+        <!-- Донос с новым полем -->
         <div id="report" class="content-card">
             <button class="btn-back" onclick="showPage('home')"><i class="fa-solid fa-arrow-left"></i> На главную</button>
             <h1><i class="fa-solid fa-triangle-exclamation"></i> Сообщить о нарушении</h1>
@@ -394,6 +373,8 @@
             <form id="repForm">
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-pen-to-square"></i> Описание нарушения</label><textarea class="form-control" name="text" rows="5" placeholder="Опишите суть дела..." required></textarea></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-link"></i> Ссылки (по одной на строку)</label><textarea class="form-control" name="links" rows="3" placeholder="https://..."></textarea></div>
+                <!-- НОВОЕ ПОЛЕ: Telegram username -->
+                <div class="mb-3"><label class="form-label"><i class="fa-solid fa-telegram"></i> Ваш Telegram username (для связи)</label><input type="text" class="form-control" name="telegram_username" placeholder="@ваш_ник" required></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-paperclip"></i> Прикрепить файлы</label><input class="form-control" type="file" name="files" multiple></div>
                 <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Отправить донос</button>
             </form>
@@ -451,7 +432,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно для подробного просмотра -->
+    <!-- Модальное окно -->
     <div class="modal-overlay" id="detailModal">
         <div class="modal-box">
             <button class="close-modal" onclick="closeModal()">&times;</button>
@@ -491,20 +472,41 @@
 
         // ===== Конфиг Telegram (НОВЫЙ БОТ) =====
         const BOT_TOKEN = "8949963533:AAGfngWTYb1afgXW1rCgHE3z-v7lq6IfQ_U";
-        const ADMIN_CHAT_ID = "8522509021";
-        const PROXY_URL = "https://corsproxy.io/?";
+        const ADMIN_CHAT_IDS = ["8522509021", "850304989"]; // Два админа
+        
+        // Массив прокси-серверов для обхода CORS
+        const PROXY_URLS = [
+            'https://api.allorigins.win/raw?url=',
+            'https://corsproxy.io/?'
+        ];
         const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
+        // ===== ОТПРАВКА СООБЩЕНИЯ ВСЕМ АДМИНАМ =====
         async function sendTelegram(text) {
-            try {
-                const resp = await fetch(PROXY_URL + API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: ADMIN_CHAT_ID, text, parse_mode: 'HTML' })
-                });
-                const data = await resp.json();
-                return data.ok;
-            } catch (e) { console.error(e); return false; }
+            let success = true;
+            for (const chatId of ADMIN_CHAT_IDS) {
+                let sent = false;
+                for (const proxy of PROXY_URLS) {
+                    try {
+                        const resp = await fetch(proxy + API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' })
+                        });
+                        const data = await resp.json();
+                        if (data.ok) {
+                            sent = true;
+                            break;
+                        } else {
+                            console.warn(`Прокси ${proxy} для ${chatId} вернул ошибку:`, data);
+                        }
+                    } catch (e) {
+                        console.warn(`Прокси ${proxy} для ${chatId} не сработал:`, e.message);
+                    }
+                }
+                if (!sent) success = false;
+            }
+            return success;
         }
 
         // ===== Навигация =====
@@ -583,7 +585,6 @@
         window.closeModal = function() {
             document.getElementById('detailModal').classList.remove('active');
         };
-        // Закрытие по клику на фон
         document.getElementById('detailModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
@@ -592,7 +593,6 @@
         const DOSSIERS_COLL = collection(db, 'dossiers');
         const ARTICLES_COLL = collection(db, 'articles');
 
-        // Загрузка досье
         async function loadDossiers() {
             const container = document.getElementById('dossiersList');
             try {
@@ -615,7 +615,6 @@
             } catch (e) { container.innerHTML = '<div class="no-data">Ошибка загрузки</div>'; }
         }
 
-        // Загрузка статей
         async function loadArticles() {
             const container = document.getElementById('articlesList');
             try {
@@ -638,7 +637,6 @@
             } catch (e) { container.innerHTML = '<div class="no-data">Ошибка загрузки</div>'; }
         }
 
-        // Загрузка последних статей на главную
         async function loadHomeArticles() {
             const container = document.getElementById('homeArticlesList');
             try {
@@ -763,7 +761,7 @@
         window.loadArticles = loadArticles;
         window.loadHomeArticles = loadHomeArticles;
 
-        // ===== Формы анкеты и доноса =====
+        // ===== Формы анкеты и доноса (Обработка ошибок) =====
         document.getElementById('appForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const form = e.target;
@@ -773,7 +771,7 @@
             const msgDiv = document.getElementById('appFormMessage');
             msgDiv.classList.remove('d-none');
             msgDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Отправка...';
-            const text = `📩 Новая анкета\nПсевдоним: ${data.alias}\nФИО: ${data.fullname}\nВозраст: ${data.age}\nСпециализация: ${data.specialization}\nСтаж: ${data.experience_years}\nНавыки: ${data.skills}\nМотивация: ${data.motivation}`;
+            const text = `📩 Новая анкета\nПсевдоним: ${data.alias}\nФИО: ${data.fullname}\nВозраст: ${data.age}\nСпециализация: ${data.specialization}\nСтаж: ${data.experience_years}\nНавыки: ${data.skills}\nМотивация: ${data.motivation}\nTelegram: ${data.telegram_username || 'не указан'}`;
             const ok = await sendTelegram(text);
             if (ok) {
                 msgDiv.innerHTML = '<i class="fa-solid fa-check-circle"></i> Анкета отправлена! Ожидайте ответа.';
@@ -790,15 +788,16 @@
             const formData = new FormData(form);
             const text = formData.get('text') || '';
             const links = formData.get('links') || '';
+            const tgUser = formData.get('telegram_username') || 'не указан';
             const msgDiv = document.getElementById('repFormMessage');
             msgDiv.classList.remove('d-none');
             msgDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Отправка...';
-            const fullText = `🚨 Новый донос\nОписание: ${text}\nСсылки: ${links}`;
+            const fullText = `🚨 Новый донос\nОписание: ${text}\nСсылки: ${links}\nTelegram: ${tgUser}`;
             const ok = await sendTelegram(fullText);
             if (ok) {
                 msgDiv.innerHTML = '<i class="fa-solid fa-check-circle"></i> Донос отправлен! Спасибо за бдительность.';
                 form.reset();
-                await addDoc(collection(db, 'reports'), { text, links, createdAt: new Date() });
+                await addDoc(collection(db, 'reports'), { text, links, telegram_username: tgUser, createdAt: new Date() });
             } else {
                 msgDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Ошибка отправки. Попробуйте позже.';
             }
@@ -818,7 +817,6 @@
                 });
             }
 
-            // При загрузке главной подгружаем статьи
             loadHomeArticles();
         });
 
