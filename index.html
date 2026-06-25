@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ... (сохраняем все предыдущие стили) ... */
         :root {
             --bg: #070b14;
             --surface: rgba(18, 22, 40, 0.8);
@@ -32,12 +33,7 @@
         }
         body { display: flex; flex-direction: column; min-height: 100vh; }
 
-        .glass {
-            background: var(--glass);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid var(--border);
-        }
+        .glass { background: var(--glass); backdrop-filter: blur(8px); border: 1px solid var(--border); }
 
         .navbar {
             background: rgba(7, 11, 20, 0.85) !important;
@@ -55,10 +51,7 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             display: flex; align-items: center; gap: 5px; text-decoration: none;
         }
-        .navbar-brand i {
-            font-size: 1.3rem; color: #d4af37; -webkit-text-fill-color: #d4af37;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
-        }
+        .navbar-brand i { font-size: 1.3rem; color: #d4af37; -webkit-text-fill-color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
         .nav-link {
             color: #bbb !important; font-weight: 500; margin: 0 1px; border-radius: 6px;
             padding: 0.3rem 0.6rem !important; font-size: 0.8rem;
@@ -68,12 +61,8 @@
         .admin-link { color: var(--accent) !important; font-weight: 700 !important; }
 
         .main-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 0.5rem 0.5rem 0;
-            margin-top: 54px;
-            overflow: visible !important;
+            flex: 1; display: flex; flex-direction: column;
+            padding: 0.5rem 0.5rem 0; margin-top: 54px; overflow: visible !important;
         }
 
         .hero { text-align: center; margin-bottom: 0.4rem; }
@@ -84,18 +73,11 @@
             text-shadow: 0 3px 10px rgba(196, 18, 48, 0.4);
             margin-bottom: 0.1rem;
         }
-        .hero .subtitle {
-            font-size: clamp(0.55rem, 3vw, 0.75rem); color: var(--gold);
-            text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500;
-        }
+        .hero .subtitle { font-size: clamp(0.55rem, 3vw, 0.75rem); color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
 
-        .menu-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 1fr 1fr; gap: 6px;
-        }
+        .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 6px; }
         .menu-card {
-            background: var(--surface);
-            backdrop-filter: blur(10px);
+            background: var(--surface); backdrop-filter: blur(10px);
             border: 1px solid var(--border); border-radius: var(--radius);
             text-decoration: none; color: var(--text);
             transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,95 +85,40 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             padding: 0.3rem; cursor: pointer;
         }
-        .menu-card:hover {
-            background: rgba(25, 30, 50, 0.9); border-color: var(--accent);
-            transform: translateY(-2px); box-shadow: 0 6px 18px rgba(196, 18, 48, 0.3);
-        }
-        .menu-card i {
-            font-size: clamp(1rem, 5vw, 1.4rem); color: var(--gold); margin-bottom: 0.2rem;
-            transition: 0.3s; text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
-        }
+        .menu-card:hover { background: rgba(25, 30, 50, 0.9); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(196, 18, 48, 0.3); }
+        .menu-card i { font-size: clamp(1rem, 5vw, 1.4rem); color: var(--gold); margin-bottom: 0.2rem; transition: 0.3s; text-shadow: 0 0 8px rgba(212, 175, 55, 0.4); }
         .menu-card:hover i { transform: scale(1.1); color: #f2d06b; text-shadow: 0 0 15px rgba(212, 175, 55, 0.7); }
-        .menu-card .card-title {
-            font-family: 'Montserrat', sans-serif; font-weight: 600;
-            font-size: clamp(0.5rem, 4vw, 0.7rem); letter-spacing: 0.3px;
-            color: #fff; margin-bottom: 0; text-align: center; line-height: 1.2;
-        }
+        .menu-card .card-title { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(0.5rem, 4vw, 0.7rem); letter-spacing: 0.3px; color: #fff; margin-bottom: 0; text-align: center; line-height: 1.2; }
 
-        .content-card {
-            background: var(--surface);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            margin-bottom: 1.5rem; display: none;
-        }
+        .content-card { background: var(--surface); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4); margin-bottom: 1.5rem; display: none; }
         .content-card.active { display: block; }
 
-        h1 {
-            font-family: 'Montserrat', sans-serif; color: var(--gold); font-weight: 700;
-            font-size: 1.8rem; margin-bottom: 1rem; text-align: center;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-        }
-        h2 {
-            font-family: 'Montserrat', sans-serif; color: #fff; font-weight: 600;
-            font-size: 1.3rem; margin-bottom: 1rem;
-            border-bottom: 1px solid var(--accent); padding-bottom: 0.3rem;
-            display: flex; align-items: center; gap: 8px;
-        }
+        h1 { font-family: 'Montserrat', sans-serif; color: var(--gold); font-weight: 700; font-size: 1.8rem; margin-bottom: 1rem; text-align: center; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        h2 { font-family: 'Montserrat', sans-serif; color: #fff; font-weight: 600; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid var(--accent); padding-bottom: 0.3rem; display: flex; align-items: center; gap: 8px; }
         p, li { color: var(--text-muted); line-height: 1.6; margin-bottom: 0.8rem; }
         .icon-list { list-style: none; padding-left: 0; }
         .icon-list li { padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .icon-list li i { color: var(--gold); margin-right: 8px; width: 20px; text-align: center; }
 
         .form-label { color: #ccc; font-weight: 500; margin-bottom: 0.3rem; }
-        .form-control, .form-select {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
-            color: #fff; border-radius: 8px; padding: 0.6rem 1rem; transition: 0.3s;
-        }
+        .form-control, .form-select { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: #fff; border-radius: 8px; padding: 0.6rem 1rem; transition: 0.3s; }
         .form-control::placeholder, .form-select::placeholder { color: #b0b0b0 !important; opacity: 1; }
-        .form-control:focus, .form-select:focus {
-            border-color: var(--gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .btn-submit {
-            background: var(--accent); border: none; color: white; font-weight: 600;
-            padding: 0.7rem 2rem; border-radius: 20px; text-transform: uppercase;
-            letter-spacing: 1px; transition: 0.3s; width: 100%;
-        }
+        .form-control:focus, .form-select:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); background: rgba(255, 255, 255, 0.1); }
+        .btn-submit { background: var(--accent); border: none; color: white; font-weight: 600; padding: 0.7rem 2rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; width: 100%; }
         .btn-submit:hover { background: #e0183a; box-shadow: 0 0 20px rgba(196,18,48,0.5); }
 
-        .btn-back {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(196, 18, 48, 0.2); border: 1px solid var(--accent);
-            color: #fff; padding: 0.5rem 1rem; border-radius: 20px;
-            text-decoration: none; font-weight: 500; transition: 0.3s; margin-bottom: 1rem; cursor: pointer;
-        }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 18, 48, 0.2); border: 1px solid var(--accent); color: #fff; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-weight: 500; transition: 0.3s; margin-bottom: 1rem; cursor: pointer; }
         .btn-back:hover { background: rgba(196, 18, 48, 0.4); color: #fff; }
 
         .alert { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: var(--gold); border-radius: 8px; }
         .no-data { text-align: center; padding: 2rem; color: var(--text-muted); }
 
-        .article-card, .dossier-card {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
-            border-radius: var(--radius); padding: 1.2rem; margin-bottom: 1.2rem; transition: 0.3s;
-        }
+        .article-card, .dossier-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; margin-bottom: 1.2rem; transition: 0.3s; }
         .article-card:hover, .dossier-card:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--accent); }
         .article-title, .dossier-title { font-weight: 600; color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .article-preview, .dossier-preview {
-            color: var(--text-muted); line-height: 1.5; margin-bottom: 0.8rem;
-            max-height: 4.5em; overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
+        .article-preview, .dossier-preview { color: var(--text-muted); line-height: 1.5; margin-bottom: 0.8rem; max-height: 4.5em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
         .article-date, .dossier-date { font-size: 0.8rem; color: var(--gold); display: flex; align-items: center; gap: 5px; }
-        .btn-detail {
-            background: transparent; border: 1px solid var(--gold); color: var(--gold);
-            padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer;
-            transition: 0.3s; margin-top: 0.5rem;
-        }
+        .btn-detail { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; margin-top: 0.5rem; }
         .btn-detail:hover { background: var(--gold); color: #000; }
 
         .home-articles { margin-top: 1.5rem; }
@@ -200,66 +127,33 @@
         #admin_login { max-width: 400px; margin: 0 auto; padding: 2rem 0; }
         #admin_login .form-group { margin-bottom: 1rem; }
         #admin_login label { color: #ccc; }
-        #admin_login input {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
-            color: #fff; border-radius: 8px; padding: 0.6rem 1rem; width: 100%;
-        }
-        #admin_login button {
-            background: var(--accent); border: none; color: white; font-weight: 600;
-            padding: 0.7rem 2rem; border-radius: 20px; text-transform: uppercase;
-            letter-spacing: 1px; transition: 0.3s; width: 100%; cursor: pointer;
-        }
+        #admin_login input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: #fff; border-radius: 8px; padding: 0.6rem 1rem; width: 100%; }
+        #admin_login button { background: var(--accent); border: none; color: white; font-weight: 600; padding: 0.7rem 2rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; width: 100%; cursor: pointer; }
         #admin_login button:hover { background: #e0183a; box-shadow: 0 0 20px rgba(196,18,48,0.5); }
         #admin_login .error-msg { color: #ff6b6b; margin-top: 0.5rem; text-align: center; }
         #admin_content { display: none; }
 
-        .admin-item {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0.5rem 0; border-bottom: 1px solid var(--border);
-        }
-        .admin-item .btn-sm {
-            background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 0.2rem 0.8rem;
-            border-radius: 12px; font-size: 0.7rem; cursor: pointer; margin-left: 0.3rem;
-        }
+        .admin-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+        .admin-item .btn-sm { background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 0.2rem 0.8rem; border-radius: 12px; font-size: 0.7rem; cursor: pointer; margin-left: 0.3rem; }
         .admin-item .btn-sm:hover { background: rgba(255,255,255,0.2); }
         .admin-item .btn-sm.delete { background: #c41230; }
         .admin-item .btn-sm.delete:hover { background: #a30e26; }
-        .add-btn {
-            background: var(--gold); border: none; color: #000; font-weight: 600;
-            padding: 0.3rem 1rem; border-radius: 20px; cursor: pointer; margin-bottom: 1rem;
-        }
+        .add-btn { background: var(--gold); border: none; color: #000; font-weight: 600; padding: 0.3rem 1rem; border-radius: 20px; cursor: pointer; margin-bottom: 1rem; }
 
-        .modal-overlay {
-            display: none;
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            z-index: 9999;
-            justify-content: center; align-items: center;
-            padding: 1rem;
-        }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 1rem; }
         .modal-overlay.active { display: flex; }
-        .modal-box {
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            max-width: 600px; width: 100%;
-            max-height: 80vh; overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-        }
+        .modal-box { background: var(--surface); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
         .modal-box h2 { margin-top: 0; }
-        .modal-box .close-modal {
-            float: right; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;
-        }
+        .modal-box .close-modal { float: right; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
         .modal-box .close-modal:hover { color: var(--accent); }
         .modal-box .modal-content { color: var(--text-muted); line-height: 1.6; }
+        .file-preview { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .file-preview a { color: var(--gold); text-decoration: none; display: inline-block; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 8px; font-size: 0.9rem; }
+        .file-preview a:hover { background: rgba(255,255,255,0.15); }
+        .file-preview img { max-width: 100px; max-height: 100px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+        .file-preview img:hover { transform: scale(1.05); }
 
-        @media (max-width: 480px) {
-            .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; }
-            .menu-card { padding: 0.2rem; }
-        }
+        @media (max-width: 480px) { .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; } .menu-card { padding: 0.2rem; } }
     </style>
 </head>
 <body>
@@ -297,7 +191,6 @@
                 <div class="menu-card" onclick="showPage('articles')"><i class="fa-solid fa-newspaper"></i><span class="card-title">Статьи</span></div>
                 <div class="menu-card" onclick="showPage('contacts')"><i class="fa-solid fa-address-book"></i><span class="card-title">Контакты</span></div>
             </div>
-
             <div class="home-articles">
                 <h2><i class="fa-solid fa-newspaper"></i> Последние статьи</h2>
                 <div id="homeArticlesList"></div>
@@ -344,7 +237,7 @@
             </ul>
         </div>
 
-        <!-- Анкета (Вступление) с новым полем -->
+        <!-- Анкета -->
         <div id="application" class="content-card">
             <button class="btn-back" onclick="showPage('home')"><i class="fa-solid fa-arrow-left"></i> На главную</button>
             <h1><i class="fa-solid fa-file-signature"></i> Анкета кандидата</h1>
@@ -358,13 +251,12 @@
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-clock"></i> Стаж (лет)</label><input type="number" class="form-control" name="experience_years" min="0" step="0.5" placeholder="0.5 — 20+" required></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-list-check"></i> Конкретные навыки</label><textarea class="form-control" name="skills" rows="3" placeholder="Опишите ваши навыки..." required></textarea></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-pen-to-square"></i> Мотивация</label><textarea class="form-control" name="motivation" rows="4" placeholder="Почему вы хотите вступить?" required></textarea></div>
-                <!-- НОВОЕ ПОЛЕ: Telegram username -->
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-telegram"></i> Ваш Telegram username (для связи)</label><input type="text" class="form-control" name="telegram_username" placeholder="@ваш_ник" required></div>
                 <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Отправить</button>
             </form>
         </div>
 
-        <!-- Донос с новым полем -->
+        <!-- Донос -->
         <div id="report" class="content-card">
             <button class="btn-back" onclick="showPage('home')"><i class="fa-solid fa-arrow-left"></i> На главную</button>
             <h1><i class="fa-solid fa-triangle-exclamation"></i> Сообщить о нарушении</h1>
@@ -373,9 +265,8 @@
             <form id="repForm">
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-pen-to-square"></i> Описание нарушения</label><textarea class="form-control" name="text" rows="5" placeholder="Опишите суть дела..." required></textarea></div>
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-link"></i> Ссылки (по одной на строку)</label><textarea class="form-control" name="links" rows="3" placeholder="https://..."></textarea></div>
-                <!-- НОВОЕ ПОЛЕ: Telegram username -->
                 <div class="mb-3"><label class="form-label"><i class="fa-solid fa-telegram"></i> Ваш Telegram username (для связи)</label><input type="text" class="form-control" name="telegram_username" placeholder="@ваш_ник" required></div>
-                <div class="mb-3"><label class="form-label"><i class="fa-solid fa-paperclip"></i> Прикрепить файлы</label><input class="form-control" type="file" name="files" multiple></div>
+                <div class="mb-3"><label class="form-label"><i class="fa-solid fa-paperclip"></i> Прикрепить файлы</label><input class="form-control" type="file" name="files" multiple id="reportFiles"></div>
                 <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Отправить донос</button>
             </form>
         </div>
@@ -428,11 +319,17 @@
                 <h2>Управление статьями</h2>
                 <button class="add-btn" onclick="showArticleForm()">+ Добавить статью</button>
                 <div id="adminArticlesList"></div>
+                <hr>
+                <h2>Все заявки</h2>
+                <div id="adminApplicationsList"></div>
+                <hr>
+                <h2>Все доносы</h2>
+                <div id="adminReportsList"></div>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно для просмотра деталей -->
     <div class="modal-overlay" id="detailModal">
         <div class="modal-box">
             <button class="close-modal" onclick="closeModal()">&times;</button>
@@ -449,6 +346,7 @@
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
         import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-storage.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDZGGs7sau8rxAIpsqVNJb92Ki-CwaEVtw",
@@ -464,24 +362,19 @@
         const analytics = getAnalytics(app);
         const db = getFirestore(app);
         const auth = getAuth(app);
+        const storage = getStorage(app);
 
         signInAnonymously(auth).catch(console.error);
         onAuthStateChanged(auth, (user) => {
             if (user) console.log("Анонимный вход успешен");
         });
 
-        // ===== Конфиг Telegram (НОВЫЙ БОТ) =====
+        // ===== Конфиг Telegram =====
         const BOT_TOKEN = "8949963533:AAGfngWTYb1afgXW1rCgHE3z-v7lq6IfQ_U";
-        const ADMIN_CHAT_IDS = ["8522509021", "850304989"]; // Два админа
-        
-        // Массив прокси-серверов для обхода CORS
-        const PROXY_URLS = [
-            'https://api.allorigins.win/raw?url=',
-            'https://corsproxy.io/?'
-        ];
+        const ADMIN_CHAT_IDS = ["8522509021", "850304989"];
+        const PROXY_URLS = ['https://api.allorigins.win/raw?url=', 'https://corsproxy.io/?'];
         const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-        // ===== ОТПРАВКА СООБЩЕНИЯ ВСЕМ АДМИНАМ =====
         async function sendTelegram(text) {
             let success = true;
             for (const chatId of ADMIN_CHAT_IDS) {
@@ -494,19 +387,38 @@
                             body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' })
                         });
                         const data = await resp.json();
-                        if (data.ok) {
-                            sent = true;
-                            break;
-                        } else {
-                            console.warn(`Прокси ${proxy} для ${chatId} вернул ошибку:`, data);
-                        }
-                    } catch (e) {
-                        console.warn(`Прокси ${proxy} для ${chatId} не сработал:`, e.message);
-                    }
+                        if (data.ok) { sent = true; break; }
+                    } catch (e) { console.warn(e); }
                 }
                 if (!sent) success = false;
             }
             return success;
+        }
+
+        // ===== Форматирование сообщений =====
+        function formatApplication(data) {
+            return [
+                '📝 <b>Новая заявка</b>',
+                `╭ Псевдоним: ${data.alias || 'не указан'}`,
+                `〣 ФИО: ${data.fullname || 'не указан'}`,
+                `╰ Возраст: ${data.age || 'не указан'}`,
+                `╭ Специализация: ${data.specialization || 'не указана'}`,
+                `〣 Стаж: ${data.experience_years || 'не указан'} лет`,
+                `╰ Навыки: ${data.skills || 'не указаны'}`,
+                `╭ Мотивация: ${data.motivation || 'не указана'}`,
+                `〣 Telegram: ${data.telegram_username || 'не указан'}`,
+                '╰'
+            ].join('\n');
+        }
+
+        function formatReport(text, links, tg) {
+            return [
+                '🚨 <b>Новый донос</b>',
+                `╭ Описание: ${text || 'не указано'}`,
+                `〣 Ссылки: ${links || 'не указаны'}`,
+                `╰ Telegram: ${tg || 'не указан'}`,
+                '╰'
+            ].join('\n');
         }
 
         // ===== Навигация =====
@@ -518,6 +430,8 @@
             if (pageId === 'dossiers') loadDossiers();
             if (pageId === 'articles') loadArticles();
             if (pageId === 'home') loadHomeArticles();
+            if (pageId === 'admin') loadAdminApplications();
+            if (pageId === 'admin') loadAdminReports();
         };
 
         // ===== Пароль админа =====
@@ -532,16 +446,12 @@
             const btn = document.getElementById('adminLoginBtn');
             errorDiv.textContent = '';
             if (stored === null) {
-                loginDiv.style.display = 'block';
-                contentDiv.style.display = 'none';
-                input.placeholder = 'Придумайте пароль';
-                btn.textContent = 'Установить пароль';
+                loginDiv.style.display = 'block'; contentDiv.style.display = 'none';
+                input.placeholder = 'Придумайте пароль'; btn.textContent = 'Установить пароль';
                 input.value = '';
             } else {
-                loginDiv.style.display = 'block';
-                contentDiv.style.display = 'none';
-                input.placeholder = 'Введите пароль';
-                btn.textContent = 'Войти';
+                loginDiv.style.display = 'block'; contentDiv.style.display = 'none';
+                input.placeholder = 'Введите пароль'; btn.textContent = 'Войти';
                 input.value = '';
             }
         };
@@ -561,6 +471,8 @@
                 input.value = '';
                 loadAdminDossiers();
                 loadAdminArticles();
+                loadAdminApplications();
+                loadAdminReports();
             } else {
                 if (password === stored) {
                     document.getElementById('admin_login').style.display = 'none';
@@ -569,6 +481,8 @@
                     input.value = '';
                     loadAdminDossiers();
                     loadAdminArticles();
+                    loadAdminApplications();
+                    loadAdminReports();
                 } else {
                     errorDiv.textContent = 'Неверный пароль';
                     input.value = '';
@@ -602,14 +516,7 @@
                     const data = doc.data();
                     const fullContent = data.content || '';
                     const preview = fullContent.length > 120 ? fullContent.substring(0, 120) + '…' : fullContent;
-                    html += `
-                        <div class="dossier-card">
-                            <div class="dossier-title">${data.title}</div>
-                            <div class="dossier-preview">${preview}</div>
-                            <div class="dossier-date"><i class="fa-solid fa-calendar"></i> ${new Date(data.createdAt?.toMillis()).toLocaleString()}</div>
-                            <button class="btn-detail" onclick="openDetailModal('${data.title.replace(/'/g, "\\'")}', \`${fullContent.replace(/`/g, '\\`')}\`)">Подробнее <i class="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    `;
+                    html += `<div class="dossier-card"><div class="dossier-title">${data.title}</div><div class="dossier-preview">${preview}</div><div class="dossier-date"><i class="fa-solid fa-calendar"></i> ${new Date(data.createdAt?.toMillis()).toLocaleString()}</div><button class="btn-detail" onclick="openDetailModal('${data.title.replace(/'/g, "\\'")}', \`${fullContent.replace(/`/g, '\\`')}\`)">Подробнее <i class="fa-solid fa-arrow-right"></i></button></div>`;
                 });
                 container.innerHTML = html || '<div class="no-data"><p>Досье пока нет.</p></div>';
             } catch (e) { container.innerHTML = '<div class="no-data">Ошибка загрузки</div>'; }
@@ -624,14 +531,7 @@
                     const data = doc.data();
                     const fullContent = data.content || '';
                     const preview = fullContent.length > 120 ? fullContent.substring(0, 120) + '…' : fullContent;
-                    html += `
-                        <div class="article-card">
-                            <div class="article-title">${data.title}</div>
-                            <div class="article-preview">${preview}</div>
-                            <div class="article-date"><i class="fa-solid fa-calendar"></i> ${new Date(data.createdAt?.toMillis()).toLocaleString()}</div>
-                            <button class="btn-detail" onclick="openDetailModal('${data.title.replace(/'/g, "\\'")}', \`${fullContent.replace(/`/g, '\\`')}\`)">Подробнее <i class="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    `;
+                    html += `<div class="article-card"><div class="article-title">${data.title}</div><div class="article-preview">${preview}</div><div class="article-date"><i class="fa-solid fa-calendar"></i> ${new Date(data.createdAt?.toMillis()).toLocaleString()}</div><button class="btn-detail" onclick="openDetailModal('${data.title.replace(/'/g, "\\'")}', \`${fullContent.replace(/`/g, '\\`')}\`)">Подробнее <i class="fa-solid fa-arrow-right"></i></button></div>`;
                 });
                 container.innerHTML = html || '<div class="no-data"><p>Статьи пока отсутствуют.</p></div>';
             } catch (e) { container.innerHTML = '<div class="no-data">Ошибка загрузки</div>'; }
@@ -647,59 +547,37 @@
                     const data = doc.data();
                     const fullContent = data.content || '';
                     const preview = fullContent.length > 120 ? fullContent.substring(0, 120) + '…' : fullContent;
-                    html += `
-                        <div class="article-card glass">
-                            <div class="article-title">${data.title}</div>
-                            <div class="article-preview">${preview}</div>
-                            <div class="article-date"><i class="fa-solid fa-calendar"></i> ${new Date(data.createdAt?.toMillis()).toLocaleString()}</div>
-                            <button class="btn-detail" onclick="openDetailModal('${data.title.replace(/'/g, "\\'")}', \`${fullContent.replace(/`/g, '\\`')}\`)">Подробнее <i class="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    `;
+                    html += `<div class="article-card glass"><div class="article-title">${data.title}</div><div class="article-preview">${preview}</div><div class="article-date"><i class="fa-solid fa-calendar"></i> ${new Date(data.createdAt?.toMillis()).toLocaleString()}</div><button class="btn-detail" onclick="openDetailModal('${data.title.replace(/'/g, "\\'")}', \`${fullContent.replace(/`/g, '\\`')}\`)">Подробнее <i class="fa-solid fa-arrow-right"></i></button></div>`;
                 });
                 container.innerHTML = html || '<div class="no-data"><p>Пока нет статей.</p></div>';
             } catch (e) { container.innerHTML = '<div class="no-data">Ошибка загрузки</div>'; }
         }
 
-        // ===== Админ: управление =====
+        // ===== Админ: управление досье и статьями =====
         function showDossierForm() {
             const title = prompt('Введите название досье:');
             if (!title) return;
             const content = prompt('Введите содержание досье:');
             if (content === null) return;
-            addDoc(DOSSIERS_COLL, { title, content, createdAt: new Date() }).then(() => {
-                loadAdminDossiers();
-            });
+            addDoc(DOSSIERS_COLL, { title, content, createdAt: new Date() }).then(() => loadAdminDossiers());
         }
-
         function deleteDossier(id) {
-            if (confirm('Удалить это досье?')) {
-                deleteDoc(doc(db, 'dossiers', id)).then(() => loadAdminDossiers());
-            }
+            if (confirm('Удалить это досье?')) deleteDoc(doc(db, 'dossiers', id)).then(() => loadAdminDossiers());
         }
-
         function editDossier(id, title, content) {
             const newTitle = prompt('Новое название:', title);
             if (newTitle === null) return;
             const newContent = prompt('Новое содержание:', content);
             if (newContent === null) return;
-            updateDoc(doc(db, 'dossiers', id), { title: newTitle, content: newContent }).then(() => {
-                loadAdminDossiers();
-            });
+            updateDoc(doc(db, 'dossiers', id), { title: newTitle, content: newContent }).then(() => loadAdminDossiers());
         }
-
         function loadAdminDossiers() {
             const container = document.getElementById('adminDossiersList');
             getDocs(DOSSIERS_COLL).then(snapshot => {
                 let html = '';
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    html += `<div class="admin-item">
-                        <span><strong>${data.title}</strong> — ${data.content.substring(0,40)}…</span>
-                        <div>
-                            <button class="btn-sm" onclick="editDossier('${doc.id}', '${data.title}', '${data.content.replace(/'/g, "\\'")}')">✎</button>
-                            <button class="btn-sm delete" onclick="deleteDossier('${doc.id}')">✕</button>
-                        </div>
-                    </div>`;
+                    html += `<div class="admin-item"><span><strong>${data.title}</strong> — ${data.content.substring(0,40)}…</span><div><button class="btn-sm" onclick="editDossier('${doc.id}', '${data.title}', '${data.content.replace(/'/g, "\\'")}')">✎</button><button class="btn-sm delete" onclick="deleteDossier('${doc.id}')">✕</button></div></div>`;
                 });
                 container.innerHTML = html || '<p>Досье нет.</p>';
             });
@@ -710,58 +588,90 @@
             if (!title) return;
             const content = prompt('Введите содержание статьи:');
             if (content === null) return;
-            addDoc(ARTICLES_COLL, { title, content, createdAt: new Date() }).then(() => {
-                loadAdminArticles();
-            });
+            addDoc(ARTICLES_COLL, { title, content, createdAt: new Date() }).then(() => loadAdminArticles());
         }
-
         function deleteArticle(id) {
-            if (confirm('Удалить статью?')) {
-                deleteDoc(doc(db, 'articles', id)).then(() => loadAdminArticles());
-            }
+            if (confirm('Удалить статью?')) deleteDoc(doc(db, 'articles', id)).then(() => loadAdminArticles());
         }
-
         function editArticle(id, title, content) {
             const newTitle = prompt('Новое название:', title);
             if (newTitle === null) return;
             const newContent = prompt('Новое содержание:', content);
             if (newContent === null) return;
-            updateDoc(doc(db, 'articles', id), { title: newTitle, content: newContent }).then(() => {
-                loadAdminArticles();
-            });
+            updateDoc(doc(db, 'articles', id), { title: newTitle, content: newContent }).then(() => loadAdminArticles());
         }
-
         function loadAdminArticles() {
             const container = document.getElementById('adminArticlesList');
             getDocs(ARTICLES_COLL).then(snapshot => {
                 let html = '';
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    html += `<div class="admin-item">
-                        <span><strong>${data.title}</strong> — ${data.content.substring(0,40)}…</span>
-                        <div>
-                            <button class="btn-sm" onclick="editArticle('${doc.id}', '${data.title}', '${data.content.replace(/'/g, "\\'")}')">✎</button>
-                            <button class="btn-sm delete" onclick="deleteArticle('${doc.id}')">✕</button>
-                        </div>
-                    </div>`;
+                    html += `<div class="admin-item"><span><strong>${data.title}</strong> — ${data.content.substring(0,40)}…</span><div><button class="btn-sm" onclick="editArticle('${doc.id}', '${data.title}', '${data.content.replace(/'/g, "\\'")}')">✎</button><button class="btn-sm delete" onclick="deleteArticle('${doc.id}')">✕</button></div></div>`;
                 });
                 container.innerHTML = html || '<p>Статей нет.</p>';
             });
         }
 
-        window.editDossier = editDossier;
-        window.deleteDossier = deleteDossier;
-        window.editArticle = editArticle;
-        window.deleteArticle = deleteArticle;
-        window.showDossierForm = showDossierForm;
-        window.showArticleForm = showArticleForm;
-        window.loadAdminDossiers = loadAdminDossiers;
-        window.loadAdminArticles = loadAdminArticles;
-        window.loadDossiers = loadDossiers;
-        window.loadArticles = loadArticles;
-        window.loadHomeArticles = loadHomeArticles;
+        // ===== Загрузка файлов в Firebase Storage =====
+        async function uploadFiles(files) {
+            const urls = [];
+            for (const file of files) {
+                const storageRef = ref(storage, 'reports/' + Date.now() + '_' + file.name);
+                await uploadBytes(storageRef, file);
+                const url = await getDownloadURL(storageRef);
+                urls.push(url);
+            }
+            return urls;
+        }
 
-        // ===== Формы анкеты и доноса (Обработка ошибок) =====
+        // ===== Админ: просмотр заявок и доносов =====
+        async function loadAdminApplications() {
+            const container = document.getElementById('adminApplicationsList');
+            try {
+                const snapshot = await getDocs(collection(db, 'applications'));
+                let html = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const time = data.createdAt?.toMillis ? new Date(data.createdAt.toMillis()).toLocaleString() : '—';
+                    html += `<div class="admin-item">
+                        <span><strong>${data.fullname || 'Без имени'}</strong> (${data.alias || 'нет'}) — ${time}</span>
+                        <div>
+                            <button class="btn-sm" onclick="openDetailModal('Заявка от ${data.fullname || 'неизвестного'}', \`<pre>${JSON.stringify(data, null, 2)}</pre>\`)">👁</button>
+                        </div>
+                    </div>`;
+                });
+                container.innerHTML = html || '<p>Заявок пока нет.</p>';
+            } catch (e) { container.innerHTML = '<p>Ошибка загрузки заявок</p>'; }
+        }
+
+        async function loadAdminReports() {
+            const container = document.getElementById('adminReportsList');
+            try {
+                const snapshot = await getDocs(collection(db, 'reports'));
+                let html = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const time = data.createdAt?.toMillis ? new Date(data.createdAt.toMillis()).toLocaleString() : '—';
+                    const fileLinks = data.fileUrls?.map(url => {
+                        const ext = url.split('.').pop().toLowerCase();
+                        if (['jpg','jpeg','png','gif','webp'].includes(ext)) {
+                            return `<a href="${url}" target="_blank"><img src="${url}" style="max-width:80px; border-radius:4px;"></a>`;
+                        } else {
+                            return `<a href="${url}" target="_blank"><i class="fa-solid fa-file"></i> Скачать</a>`;
+                        }
+                    }).join(' ') || '';
+                    html += `<div class="admin-item">
+                        <span><strong>Донос #${doc.id}</strong> — ${time}</span>
+                        <div>
+                            <button class="btn-sm" onclick="openDetailModal('Донос #${doc.id}', \`<div><p><strong>Текст:</strong> ${data.text || ''}</p><p><strong>Ссылки:</strong> ${data.links || ''}</p><p><strong>Telegram:</strong> ${data.telegram_username || ''}</p><div class="file-preview">${fileLinks}</div></div>\`)">👁</button>
+                        </div>
+                    </div>`;
+                });
+                container.innerHTML = html || '<p>Доносов пока нет.</p>';
+            } catch (e) { container.innerHTML = '<p>Ошибка загрузки доносов</p>'; }
+        }
+
+        // ===== Обработка форм =====
         document.getElementById('appForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const form = e.target;
@@ -771,7 +681,7 @@
             const msgDiv = document.getElementById('appFormMessage');
             msgDiv.classList.remove('d-none');
             msgDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Отправка...';
-            const text = `📩 Новая анкета\nПсевдоним: ${data.alias}\nФИО: ${data.fullname}\nВозраст: ${data.age}\nСпециализация: ${data.specialization}\nСтаж: ${data.experience_years}\nНавыки: ${data.skills}\nМотивация: ${data.motivation}\nTelegram: ${data.telegram_username || 'не указан'}`;
+            const text = formatApplication(data);
             const ok = await sendTelegram(text);
             if (ok) {
                 msgDiv.innerHTML = '<i class="fa-solid fa-check-circle"></i> Анкета отправлена! Ожидайте ответа.';
@@ -788,26 +698,38 @@
             const formData = new FormData(form);
             const text = formData.get('text') || '';
             const links = formData.get('links') || '';
-            const tgUser = formData.get('telegram_username') || 'не указан';
+            const tg = formData.get('telegram_username') || 'не указан';
+            const files = document.getElementById('reportFiles').files;
             const msgDiv = document.getElementById('repFormMessage');
             msgDiv.classList.remove('d-none');
+            msgDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Загрузка файлов...';
+
+            let fileUrls = [];
+            if (files.length > 0) {
+                try {
+                    fileUrls = await uploadFiles(files);
+                } catch (error) {
+                    msgDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Ошибка загрузки файлов. Попробуйте позже.';
+                    return;
+                }
+            }
+
             msgDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Отправка...';
-            const fullText = `🚨 Новый донос\nОписание: ${text}\nСсылки: ${links}\nTelegram: ${tgUser}`;
-            const ok = await sendTelegram(fullText);
+            const reportText = formatReport(text, links, tg);
+            const ok = await sendTelegram(reportText);
             if (ok) {
                 msgDiv.innerHTML = '<i class="fa-solid fa-check-circle"></i> Донос отправлен! Спасибо за бдительность.';
                 form.reset();
-                await addDoc(collection(db, 'reports'), { text, links, telegram_username: tgUser, createdAt: new Date() });
+                await addDoc(collection(db, 'reports'), { text, links, telegram_username: tg, fileUrls, createdAt: new Date() });
             } else {
                 msgDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Ошибка отправки. Попробуйте позже.';
             }
         });
 
-        // ===== Исправление меню (гамбургер) =====
+        // ===== Меню =====
         document.addEventListener('DOMContentLoaded', function() {
             const toggleBtn = document.getElementById('menuToggleBtn');
             const collapseEl = document.getElementById('navbarNav');
-
             if (toggleBtn && collapseEl) {
                 toggleBtn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -816,9 +738,22 @@
                     toggleBtn.setAttribute('aria-expanded', !isExpanded);
                 });
             }
-
             loadHomeArticles();
         });
+
+        window.editDossier = editDossier;
+        window.deleteDossier = deleteDossier;
+        window.editArticle = editArticle;
+        window.deleteArticle = deleteArticle;
+        window.showDossierForm = showDossierForm;
+        window.showArticleForm = showArticleForm;
+        window.loadAdminDossiers = loadAdminDossiers;
+        window.loadAdminArticles = loadAdminArticles;
+        window.loadAdminApplications = loadAdminApplications;
+        window.loadAdminReports = loadAdminReports;
+        window.loadDossiers = loadDossiers;
+        window.loadArticles = loadArticles;
+        window.loadHomeArticles = loadHomeArticles;
 
         console.log('ГУ КПД готов!');
     </script>
